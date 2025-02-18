@@ -1,0 +1,12 @@
+/* ResourceCard.css */
+.resource-card {
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    text-align: center;
+  }
+  
+  .resource-card button {
+    margin-top: 10px;
+  }

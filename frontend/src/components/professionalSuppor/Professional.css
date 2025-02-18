@@ -1,0 +1,12 @@
+/* ProfessionalCard.css */
+.professional-card {
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    text-align: center;
+  }
+  
+  .professional-card button {
+    margin-top: 10px;
+  }
