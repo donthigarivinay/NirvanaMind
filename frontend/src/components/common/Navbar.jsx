@@ -1,28 +1,31 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { useAuth } from '../../context/AuthContext'; // Import useAuth
 import './Navbar.css';
+import logo from "/src/assets/logo.png";
 
-const Navbar = ({ isLoggedIn, onLogout }) => {
+const Navbar = () => {
+  const { user, logout } = useAuth(); // Get auth state
+
   return (
     <nav className="navbar">
       <div className="navbar-brand">
-        <Link to="/">Mental Health Support</Link>
+        <img src={logo} alt="Logo" />
+        <Link to="/">NirvanaMind</Link>
       </div>
       <div className="navbar-links">
-        {isLoggedIn ? (
+        {user ? ( // Show dashboard & logout if user is logged in
           <>
             <Link to="/dashboard">Dashboard</Link>
             <Link to="/community">Community</Link>
             <Link to="/therapy-sessions">Therapy Sessions</Link>
             <Link to="/profile">Profile</Link>
-            <button onClick={onLogout} className="logout-button">
-              Logout
-            </button>
+            <button onClick={logout} className="logout-button">Logout</button>
           </>
-        ) : (
+        ) : ( // Show login & register if user is not logged in
           <>
-            <Link to="/login">Login</Link> {/* Link to Login page */}
-            <Link to="/register">Register</Link> {/* Link to Register page */}
+            <Link to="/login">Login</Link>
+            <Link to="/register">Register</Link>
           </>
         )}
       </div>
